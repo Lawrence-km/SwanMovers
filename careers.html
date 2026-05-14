@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers — Swan Movers Limited</title>
+    <meta name="description" content="Careers at Swan Movers Limited — Nairobi. Explore opportunities in equipment, logistics, and site operations.">
+    <link rel="icon" href="images/Logo.png" type="image/png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles specific to Careers page */
+        .careers-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/machine.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .careers-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .careers-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .why-join-section {
+            padding: 100px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .benefit-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #ff6b00;
+            font-size: 1.8rem;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .job-listings-section {
+            padding: 100px 0;
+            background-color: #f8f8f8;
+        }
+        
+        .job-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .job-filter {
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .job-filter.active {
+            background-color: #ff6b00;
+            color: #fff;
+            border-color: #ff6b00;
+        }
+        
+        .job-filter:hover {
+            background-color: #ff6b00;
+            color: #fff;
+            border-color: #ff6b00;
+        }
+        
+        .job-listings {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .job-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .job-title h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .job-location {
+            display: flex;
+            align-items: center;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .job-location i {
+            margin-right: 8px;
+            color: #ff6b00;
+        }
+        
+        .job-type {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #e6f7ff;
+            color: #0086f9;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .job-type.full-time {
+            background-color: #e6f7ff;
+            color: #0086f9;
+        }
+        
+        .job-type.part-time {
+            background-color: #e6f0ff;
+            color: #5c6bc0;
+        }
+        
+        .job-type.contract {
+            background-color: #fff0e6;
+            color: #ff6b00;
+        }
+        
+        .job-type.temporary {
+            background-color: #f5e6ff;
+            color: #9c27b0;
+        }
+        
+        .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .job-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .job-salary {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .job-posted {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .application-process {
+            padding: 100px 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #ff6b00;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .process-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background-color: #ddd;
+        }
+        
+        .team-culture {
+            padding: 100px 0;
+            background-color: #f8f8f8;
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .culture-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .culture-img {
+            height: 200px;
+        }
+        
+        .culture-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .culture-info {
+            padding: 25px;
+            background-color: #fff;
+        }
+        
+        .culture-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .culture-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .faq-section {
+            padding: 100px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: #f8f8f8;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: #ff6b00;
+            color: #fff;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+            
+            .job-header {
+                flex-direction: column;
+            }
+            
+            .job-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="color: inherit; text-decoration: none;"><h1>Swan Movers Limited</h1></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="careers.html" class="active">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Careers Hero Section -->
+    <section class="careers-hero">
+        <div class="container">
+            <h1>Join Our Team</h1>
+            <p>Build your career with a company that values excellence, innovation, and growth</p>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="why-join-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Join Swan Movers Limited</h2>
+                <p>Discover the benefits of building your career with us</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Career Growth</h3>
+                    <p>We invest in our employees' professional development with training programs, mentorship opportunities, and clear advancement paths.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Competitive Compensation</h3>
+                    <p>We offer industry-leading salaries, comprehensive benefits packages, and performance-based bonuses.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Exciting Projects</h3>
+                    <p>Work on diverse and challenging projects that push the boundaries of construction and design.</p>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaborative Culture</h3>
+                    <p>Join a team that values collaboration, innovation, and mutual respect in a supportive work environment.</p>
+                </div>
+                
+                <!-- Benefit 5 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Work-Life Balance</h3>
+                    <p>We understand the importance of balance with flexible scheduling options and generous paid time off.</p>
+                </div>
+                
+                <!-- Benefit 6 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Impact</h3>
+                    <p>Be part of projects that positively impact communities and contribute to sustainable development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Listings Section -->
+    <section class="job-listings-section" id="job-listings-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Current Openings</h2>
+                <p>Explore our available positions and find the perfect fit for your skills and career goals</p>
+            </div>
+            
+            <div class="job-filters">
+                <div class="job-filter active" data-filter="all">All Positions</div>
+                <div class="job-filter" data-filter="construction">Construction</div>
+                <div class="job-filter" data-filter="engineering">Engineering</div>
+                <div class="job-filter" data-filter="design">Design</div>
+                <div class="job-filter" data-filter="management">Management</div>
+                <div class="job-filter" data-filter="administrative">Administrative</div>
+            </div>
+            
+            <div class="job-listings">
+                <!-- Job 1 -->
+                <div class="job-card" data-category="construction">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Senior Project Manager</h3>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Building City, BC</span>
+                            </div>
+                        </div>
+                        <span class="job-type full-time">Full-Time</span>
+                    </div>
+                    <div class="job-description">
+                        <p>We are seeking an experienced Senior Project Manager to oversee large-scale construction projects from inception to completion. The ideal candidate will have a proven track record of successfully managing complex projects, coordinating with stakeholders, and ensuring timely delivery within budget.</p>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-salary">$85,000 - $110,000 per year</div>
+                        <div class="job-posted">Posted 2 days ago</div>
+                    </div>
+                    <a href="mailto:swanmoversltd@gmail.com?subject=Application%3A%20Senior%20Project%20Manager" class="btn-primary" style="margin-top: 20px; display: inline-block;">Apply by email</a>
+                <div class="job-card" data-category="engineering">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Structural Engineer</h3>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Building City, BC</span>
+                            </div>
+                        </div>
+                        <span class="job-type full-time">Full-Time</span>
+                    </div>
+                    <div class="job-description">
+                        <p>We are looking for a qualified Structural Engineer to join our team. You will be responsible for designing, analyzing, and planning structural components for construction projects. The ideal candidate will have strong technical skills, attention to detail, and the ability to collaborate with multidisciplinary teams.</p>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-salary">$75,000 - $95,000 per year</div>
+                        <div class="job-posted">Posted 1 week ago</div>
+                    </div>
+                    <a href="mailto:swanmoversltd@gmail.com?subject=Application%3A%20Structural%20Engineer" class="btn-primary" style="margin-top: 20px; display: inline-block;">Apply by email</a>
+                <div class="job-card" data-category="construction">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Construction Superintendent</h3>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Construction Town, BC</span>
+                            </div>
+                        </div>
+                        <span class="job-type full-time">Full-Time</span>
+                    </div>
+                    <div class="job-description">
+                        <p>We are seeking an experienced Construction Superintendent to oversee day-to-day operations at construction sites. The ideal candidate will have extensive experience in construction management, strong leadership skills, and the ability to coordinate with subcontractors, inspectors, and project managers.</p>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-salary">$70,000 - $90,000 per year</div>
+                        <div class="job-posted">Posted 3 days ago</div>
+                    </div>
+                    <a href="mailto:swanmoversltd@gmail.com?subject=Application%3A%20Construction%20Superintendent" class="btn-primary" style="margin-top: 20px; display: inline-block;">Apply by email</a>
+                <div class="job-card" data-category="design">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Interior Designer</h3>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Creative City, BC</span>
+                            </div>
+                        </div>
+                        <span class="job-type full-time">Full-Time</span>
+                    </div>
+                    <div class="job-description">
+                        <p>We are looking for a creative and detail-oriented Interior Designer to join our design team. You will be responsible for creating functional and aesthetically pleasing interior spaces for residential and commercial projects. The ideal candidate will have a strong portfolio, excellent visualization skills, and knowledge of sustainable design practices.</p>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-salary">$60,000 - $80,000 per year</div>
+                        <div class="job-posted">Posted 5 days ago</div>
+                    </div>
+                    <a href="mailto:swanmoversltd@gmail.com?subject=Application%3A%20Interior%20Designer" class="btn-primary" style="margin-top: 20px; display: inline-block;">Apply by email</a>
+                <div class="job-card" data-category="administrative">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Administrative Assistant</h3>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Building City, BC</span>
+                            </div>
+                        </div>
+                        <span class="job-type full-time">Full-Time</span>
+                    </div>
+                    <div class="job-description">
+                        <p>We are seeking an organized and efficient Administrative Assistant to support our office operations. You will be responsible for managing schedules, coordinating meetings, handling correspondence, and maintaining office supplies. The ideal candidate will have strong organizational skills, attention to detail, and proficiency in office software.</p>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-salary">$40,000 - $50,000 per year</div>
+                        <div class="job-posted">Posted 1 week ago</div>
+                    </div>
+                    <a href="mailto:swanmoversltd@gmail.com?subject=Application%3A%20Administrative%20Assistant" class="btn-primary" style="margin-top: 20px; display: inline-block;">Apply by email</a>
+                <div class="job-card" data-category="construction">
+                    <div class="job-header">
+                        <div class="job-title">
+                            <h3>Skilled Carpenter</h3>
+                            <div class="job-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Construction Town, BC</span>
+                            </div>
+                        </div>
+                        <span class="job-type full-time">Full-Time</span>
+                    </div>
+                    <div class="job-description">
+                        <p>We are looking for experienced Carpenters to join our construction team. You will be responsible for cutting, shaping, and installing building materials according to specifications. The ideal candidate will have proven carpentry experience, knowledge of construction techniques, and the ability to read and interpret blueprints.</p>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-salary">$55,000 - $70,000 per year</div>
+                        <div class="job-posted">Posted 2 weeks ago</div>
+                    </div>
+                    <a href="mailto:swanmoversltd@gmail.com?subject=Application%3A%20Skilled%20Carpenter" class="btn-primary" style="margin-top: 20px; display: inline-block;">Apply by email</a>
+    <section class="application-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Application Process</h2>
+                <p>Learn about our streamlined hiring process</p>
+            </div>
+            
+            <div class="process-steps">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Application</h3>
+                    <p>Submit your resume and cover letter through our online application system.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Initial Review</h3>
+                    <p>Our HR team reviews applications and selects candidates for initial phone interviews.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Interview</h3>
+                    <p>Selected candidates are invited for in-person or virtual interviews with the hiring manager.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Assessment</h3>
+                    <p>Depending on the role, candidates may complete skills assessments or technical evaluations.</p>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Offer</h3>
+                    <p>Successful candidates receive job offers with details about compensation and benefits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Culture Section -->
+    <section class="team-culture">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Team Culture</h2>
+                <p>Experience what it's like to work at Swan Movers Limited</p>
+            </div>
+            
+            <div class="culture-grid">
+                <!-- Culture 1 -->
+                <div class="culture-card">
+                    <div class="culture-img">
+                        <img src="images/project3.jpg" alt="Team collaboration on site">
+                    </div>
+                    <div class="culture-info">
+                        <h3>Collaborative Environment</h3>
+                        <p>We foster a culture of teamwork and collaboration, where every team member's input is valued and respected.</p>
+                    </div>
+                </div>
+                
+                <!-- Culture 2 -->
+                <div class="culture-card">
+                    <div class="culture-img">
+                        <img src="images/project4.jpeg" alt="Equipment and operations">
+                    </div>
+                    <div class="culture-info">
+                        <h3>Innovation & Creativity</h3>
+                        <p>We encourage innovative thinking and creative problem-solving to deliver exceptional results for our clients.</p>
+                    </div>
+                </div>
+                
+                <!-- Culture 3 -->
+                <div class="culture-card">
+                    <div class="culture-img">
+                        <img src="images/road excavation.jpg" alt="Logistics and transport">
+                    </div>
+                    <div class="culture-info">
+                        <h3>Work-Life Balance</h3>
+                        <p>We believe in maintaining a healthy balance between work and personal life to ensure our team's well-being and productivity.</p>
+                    </div>
+                </div>
+                
+                <!-- Culture 4 -->
+                <div class="culture-card">
+                    <div class="culture-img">
+                        <img src="images/machine.jpg" alt="Fleet and machinery">
+                    </div>
+                    <div class="culture-info">
+                        <h3>Continuous Learning</h3>
+                        <p>We invest in our employees' growth through training programs, workshops, and opportunities to learn new skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about careers at Swan Movers Limited</p>
+            </div>
+            
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What qualifications do I need to work at Swan Movers Limited?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Qualifications vary by position. For technical roles, relevant education and certifications are typically required. For skilled trades, we look for appropriate training and experience. All positions require a strong work ethic, attention to detail, and a commitment to safety and quality.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer internships or apprenticeship programs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer internships for students in construction management, engineering, and design programs. We also have apprenticeship programs for various trades. These programs provide hands-on experience and mentorship from experienced professionals.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What benefits do you offer to employees?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a comprehensive benefits package that includes health insurance, dental and vision coverage, retirement plans with company matching, paid time off, professional development opportunities, and performance bonuses. Specific benefits may vary based on position and employment status.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the work schedule like?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Work schedules vary by position and project requirements. Office staff typically work standard business hours, while field positions may have different schedules based on project timelines and weather conditions. We strive to maintain work-life balance while meeting project deadlines.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does the hiring process take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The hiring process typically takes 2-4 weeks from application to offer, depending on the position and the number of candidates. We strive to keep candidates informed throughout the process and provide timely feedback after interviews.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Join Our Team?</h2>
+            <p>Explore our current openings and take the first step toward a rewarding career in construction.</p>
+            <a href="#job-listings-section" class="btn-primary">View Open Positions</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Swan Movers Limited</h2>
+                    <p>Equipment, logistics, earthworks &amp; materials — Nairobi, Kenya</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html#residential">Equipment Management</a></li>
+                        <li><a href="services.html#commercial">Logistics</a></li>
+                        <li><a href="services.html#renovation">Earthworks</a></li>
+                        <li><a href="services.html#design">Construction Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Valley View Office Park Block A, 6th Floor, Nairobi</p>
+                    <p><i class="fas fa-phone"></i> +254 705 454 688<br>+254 722 780 245</p>
+                    <p><i class="fas fa-envelope"></i> swanmoversltd@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61578462911559" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/swanmoversltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Swan Movers Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Job Filtering
+            const jobFilters = document.querySelectorAll('.job-filter');
+            const jobCards = document.querySelectorAll('.job-card');
+            
+            jobFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Remove active class from all filters
+                    jobFilters.forEach(f => f.classList.remove('active'));
+                    
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide job cards based on filter
+                    jobCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    // Toggle active class on clicked item
+                    item.classList.toggle('active');
+                    
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

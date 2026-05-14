@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Swan Movers Limited</title>
+    <meta name="description" content="Selected projects by Swan Movers Limited: excavation, logistics, materials, and site works in Kenya.">
+    <link rel="icon" href="images/Logo.png" type="image/png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles specific to Projects page */
+        .projects-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/project1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .projects-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .projects-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .projects-filter {
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .filter-buttons {
+            display: inline-flex;
+            background-color: #f5f5f5;
+            border-radius: 50px;
+            padding: 10px;
+            margin-bottom: 50px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .filter-btn.active {
+            background-color: #ff6b00;
+            color: #fff;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-item:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-category {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff6b00;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .project-info {
+            padding: 25px;
+            background-color: #fff;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-info p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .project-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-meta i {
+            margin-right: 5px;
+            color: #ff6b00;
+        }
+        
+        .project-detail {
+            padding: 100px 0;
+        }
+        
+        .project-detail-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+        
+        .project-gallery {
+            margin-bottom: 40px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .thumb {
+            height: 120px;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        
+        .thumb:hover img {
+            opacity: 0.8;
+        }
+        
+        .project-description h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .project-description h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #ff6b00;
+        }
+        
+        .project-description p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .project-sidebar {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        
+        .project-sidebar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .project-info-list {
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            width: 120px;
+            color: #333;
+        }
+        
+        .info-value {
+            color: #666;
+        }
+        
+        .project-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .related-projects {
+            padding: 100px 0;
+            background-color: #f8f8f8;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .project-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-thumbs {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .filter-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                margin: 5px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .main-image {
+                height: 350px;
+            }
+            
+            .gallery-thumbs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Project Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+        
+        .modal-prev,
+        .modal-next {
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .modal-prev:hover,
+        .modal-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="color: inherit; text-decoration: none;"><h1>Swan Movers Limited</h1></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects Hero Section -->
+    <section class="projects-hero">
+        <div class="container">
+            <h1>Our Projects</h1>
+            <p>Selected site works across Kenya</p>
+        </div>
+    </section>
+
+    <!-- Projects Filter Section -->
+    <section class="projects-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="renovation">Renovation</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-item residential" id="project1">
+                    <div class="project-img">
+                        <img src="images/project1.jpg" alt="Drainage excavation">
+                        <div class="project-category">Residential</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Drainage excavation</h3>
+                        <p>Drainage and trench excavation works delivered with attention to levels and site safety.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Kasarani road, Kiambu  </span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-item commercial" id="project2">
+                    <div class="project-img">
+                        <img src="images/project2.jpg" alt="Corporate Headquarters">
+                        <div class="project-category">Commercial</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Corporate Headquarters</h3>
+                        <p>A sustainable 12-story office building with state-of-the-art facilities.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Chicago, IL</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-item commercial" id="project3">
+                    <div class="project-img">
+                        <img src="images/project3.jpg" alt="Community Shopping Center">
+                        <div class="project-category">Commercial</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Community worship center</h3>
+                        <p>A vibrant worship center delivered with coordinated logistics and site support.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Miami, FL</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-item residential">
+                    <div class="project-img">
+                        <img src="images/deep excavation1.jpg" alt="Modern Family Home">
+                        <div class="project-category">Residential</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Basement Excavation</h3>
+                        <p>A modern residential complex with 25 luxury units featuring smart home technology custom-designed for family living spaces.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Westlands, Nairobi</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-item renovation">
+                    <div class="project-img">
+                        <img src="images/project5.jpeg" alt="Piling excavation site">
+                        <div class="project-category">Earthworks</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Piling Excavation</h3>
+                        <p>Careful excavation and piling work to support a new high-rise development.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Boston, MA</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-item industrial">
+                    <div class="project-img">
+                        <img src="images/project 6.jpg" alt="Manufacturing Facility">
+                        <div class="project-category">Industrial</div>
+                        <p>A state-of-the-art demolition project focused on safe and efficient building removal.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Detroit, MI</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="project-item commercial">
+                    <div class="project-img">
+                        <img src="images/Machine cut stones .jpg" alt="Boutique Hotel">
+                        <div class="project-category">Commercial</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Machine Cut Stones</h3>
+                        <p>High-quality machine-cut stones for construction and landscaping projects.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> San Francisco, CA</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="project-item renovation">
+                    <div class="project-img">
+                        <img src="images/project4.jpeg" alt="Office Space Remodel">
+                        <div class="project-category">Renovation / Commercial</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Quarry Materials transport</h3>
+                        <p>Efficient transportation solutions for quarry materials, ensuring timely delivery and minimal disruption.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="project-item residential">
+                    <div class="project-img">
+                        <img src="images/road excavation.jpg" alt="Luxury Apartment Building">
+                        <div class="project-category">Industrial</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Road Excavation </h3>
+                        <p>Comprehensive road excavation services for the removal of the existing black cotton layer </p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> The Courtyard General Mathenge Drive, NAIROBI</span>
+                            <span><i class="fas fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to scope your next site?</h2>
+                <p>Contact Swan Movers Limited for a consultation</p>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div class="modal" id="projectModal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img src="" alt="Project Image" class="modal-img" id="modalImg">
+        </div>
+        <div class="modal-nav">
+            <span class="modal-prev"><i class="fas fa-chevron-left"></i></span>
+            <span class="modal-next"><i class="fas fa-chevron-right"></i></span>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Swan Movers Limited</h2>
+                    <p>Equipment, logistics, earthworks &amp; materials — Nairobi, Kenya</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html#residential">Equipment Management</a></li>
+                        <li><a href="services.html#commercial">Logistics</a></li>
+                        <li><a href="services.html#renovation">Earthworks</a></li>
+                        <li><a href="services.html#design">Construction Materials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Valley View Office Park Block A, 6th Floor, Nairobi</p>
+                    <p><i class="fas fa-phone"></i> +254 705 454 688<br>+254 722 780 245</p>
+                    <p><i class="fas fa-envelope"></i> swanmoversltd@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61578462911559" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/swanmoversltd/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Swan Movers Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Project Filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                        } else if (item.classList.contains(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Project Modal
+            const projectImages = document.querySelectorAll('.project-img img');
+            const modal = document.getElementById('projectModal');
+            const modalImg = document.getElementById('modalImg');
+            const closeModal = document.querySelector('.close-modal');
+            const modalPrev = document.querySelector('.modal-prev');
+            const modalNext = document.querySelector('.modal-next');
+            
+            let currentImageIndex = 0;
+            const images = Array.from(projectImages).map(img => img.src);
+            
+            projectImages.forEach((img, index) => {
+                img.addEventListener('click', function() {
+                    modal.style.display = 'flex';
+                    modalImg.src = this.src;
+                    currentImageIndex = index;
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            modalPrev.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                modalImg.src = images[currentImageIndex];
+            });
+            
+            modalNext.addEventListener('click', function() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                modalImg.src = images[currentImageIndex];
+            });
+            
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
