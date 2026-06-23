@@ -46,4 +46,5 @@ This static site does not require env vars. If you later switch to a custom API,
 | `js/script.js` | Mobile nav, smooth scroll, home testimonial scroll, contact validation |
 | `images/` | Photos and logo |
 | `vercel.json` | Security-related HTTP headers |
-| `scripts/build.mjs` | Build-time file checks |
+| `scripts/build.mjs`| Build-time file checks |
+| `package.json` | project dependencies (including `@vercel/speed-insights` )
