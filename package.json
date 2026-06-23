@@ -4,12 +4,15 @@
   "private": true,
   "description": "Static marketing site for Swan Movers Limited",
 }
+ {
   "scripts": {
-  "dev": "vite",
-  "debug": "vite --debug",
-  "build": "vite build"
+    "build": "vite build"
   },
   "dependencies": {
-    "vite": "^5.2.0"
- 
+    "react": "^18.x.x",
+    "react-dom": "^18.x.x",
+    "vite": "^5.x.x",
+    "@vitejs/plugin-react": "^4.x.x"
+  },
+  "devDependencies": {}
 }
