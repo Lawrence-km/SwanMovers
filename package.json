@@ -9,7 +9,7 @@
   "debug": "vite --debug",
   "build": "vite build"
   },
-  "devDependencies": {
+  "dependencies": {
     "vite": "^5.2.0"
  
 }
